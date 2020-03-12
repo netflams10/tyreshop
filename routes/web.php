@@ -44,3 +44,11 @@ Route::post('admin/createproduct/submit', 'Admin\ProductController@store')->name
 
 
 Route::get('/admin', 'Admin\DashBoardController@index')->name('admin.dashboard');
+
+
+// Start of Front End
+// This is also the start of Front End Magnitude
+Route::post('/result', 'Front\TyresController@search')->name('search');
+Route::post('/searchresult', 'Front\TyresController@search')->name('searchresult');
+
+Route::get('/', 'Front\TyresController@index')->name('home');

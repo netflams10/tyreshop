@@ -55,7 +55,7 @@ class ProductController extends Controller
             'description' => '',
         ]);
 
-        // $imagePath = request('image')->store('uploads', 'public');
+        $imagePath = request('image')->store('uploads', 'public');
         // $image = Image::make(public_path('/storage/{$imagePath}'))->fit(1000,1000);
         // $image->save();
 
@@ -68,20 +68,17 @@ class ProductController extends Controller
         //     $constraint->aspectRatio();
         // })->save($destinationPath.'/'.$input['imagename']);
 
+        \App\Products::create([
+            'companyname'   => $data['companyname'],
+            'tyresize'      => $data['tyresize'],
+            'aspectratio'   => $data['aspectratio'],
+            'rimsize'       => $data['rimsize'],
+            'description'   => $data['description'],
+            'price'         => $data['price'],
+            'image'         => $imagePath,
+        ]);
 
-
-
-        // \App\Products::create([
-        //     'companyname'   => $data['companyname'],
-        //     'tyresize'      => $data['tyresize'],
-        //     'aspectratio'   => $data['aspectratio'],
-        //     'rimsize'       => $data['rimsize'],
-        //     'description'   => $data['description'],
-        //     'price'         => $data['price'],
-        //     'image'         => $imagePath,
-        // ]);
-
-        // return redirect(route('admin.allproduct'))->with('message', 'New Product Successful Added');
+        return redirect(route('admin.allproduct'))->with('message', 'New Product Successful Added');
 
     }
 

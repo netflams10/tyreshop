@@ -23,10 +23,6 @@
                 @include('inc.nav')
             </div>
 
-            <div class="pb-2">
-                @include('inc.carousel')
-            </div>
-
             <div class="container-fluid">
                 @yield('content')
             </div>
